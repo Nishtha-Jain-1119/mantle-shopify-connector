@@ -219,8 +219,8 @@ under the License.
                 </if>
 <!--                Getting return details for each returnId-->
                 <iterate list="returnIdList" entry="returnId">
-                    <service-call name="co.hotwax.shopify.return.ShopifyReturnServices.get#ReturnDetails" in-map="[systemMessageRemoteId:systemMessageRemoteId, returnId:returnId]" out-map="returnDetail"/>
-                    <script>returns.addAll(returnDetail.returnDetail)</script>
+                    <service-call name="co.hotwax.shopify.return.ShopifyReturnServices.get#ReturnDetails" in-map="[systemMessageRemoteId:systemMessageRemoteId, returnId:returnId]" out-map="returnDetails"/>
+                    <script>returns.addAll(returnDetails.returnDetail)</script>
                 </iterate>
                 <set field="hasNextPage" from="returnResponse.response.node.returns.pageInfo.hasNextPage"/>
                 <set field="cursor" from="returnResponse.response.node.returns.pageInfo.endCursor"/>
